@@ -16,7 +16,7 @@ class FlatcamEvo < Formula
   
     def install
       virtualenv_create(libexec, "python3")
-      inreplace "flatcam.py", "import sys", "#!#{libexec}/bin/python3\nimport sys"
+      inreplace "flatcam.py", "\nimport sys", "#!#{libexec}/bin/python3\nimport sys"
       system libexec/"bin/python3", "-m","pip","install", "-r", "requirements.txt"
       libexec.install Dir["*.py", "appCommon", "appEditors", "appGUI", \
         "appHandlers", "appObjects", "appParsers", "appPlugins", "assets", "config",\
