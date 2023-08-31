@@ -18,8 +18,8 @@ class FlatcamBeta < Formula
     inreplace "FlatCAM.py", "import sys", "#!#{libexec}/bin/python3\nimport sys"
     inreplace "requirements.txt", "vispy", "vispy==0.7.1" # patch for fixing vispy version
     inreplace "requirements.txt", "shapely>=1.7.0", "shapely==1.8.5"
-    system libexec/"bin/pip", "install", "descartes" # missing dependency
-    system libexec/"bin/pip", "install", "-r", "requirements.txt"
+    system libexec/"bin/python3", "-m","pip", "install", "descartes" # missing dependency
+    system libexec/"bin/python3", "-m","pip", "install", "-r", "requirements.txt"
     libexec.install Dir["*.py", "appCommon", "appEditors", "appGUI", "appObjects", "appParsers", "appTools", "assets", "config",\
      "descrtes", "doc", "flatcamEditors", "flatcamGUI", "flatcamTools", "lib", "locale", "locale_template", \
      "postprocessors", "preprocessors", "py2", "tclCommands", "Utils"]
